@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECommons.IPC.Providers.Lifestream;
+namespace ECommons.IPC.Providers.LifestreamIPC;
 
 public enum HouseEnterMode
 {
