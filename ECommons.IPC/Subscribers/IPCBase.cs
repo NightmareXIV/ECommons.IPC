@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ECommons.IPC.Providers;
+namespace ECommons.IPC.Subscribers;
 
-public abstract class ProviderBase
+public abstract class IPCBase
 {
     public static SafeWrapper DefaultWrapper { get; set; } = SafeWrapper.None;
     public abstract string IPCPrefix { get; }
@@ -22,12 +22,12 @@ public abstract class ProviderBase
         }
     }
 
-    public ProviderBase()
+    public IPCBase()
     {
         EzIPC.Init(this, IPCPrefix, Wrapper ?? DefaultWrapper);
     }
 
-    public ProviderBase(SafeWrapper wrapper)
+    public IPCBase(SafeWrapper wrapper)
     {
         EzIPC.Init(this, IPCPrefix, wrapper);
     }

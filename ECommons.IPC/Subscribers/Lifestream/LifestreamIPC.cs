@@ -2,11 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Numerics;
-using static ECommons.IPC.Providers.LifestreamIPC.LifestreamIPC.Delegates;
+using static ECommons.IPC.Subscribers.LifestreamIPC.LifestreamIPC.Delegates;
 
-namespace ECommons.IPC.Providers.LifestreamIPC;
+namespace ECommons.IPC.Subscribers.LifestreamIPC;
 
-public sealed class LifestreamIPC : ProviderBase
+public sealed class LifestreamIPC : IPCBase
 {
     public LifestreamIPC()
     {
@@ -20,13 +20,14 @@ public sealed class LifestreamIPC : ProviderBase
 
     public static class Delegates
     {
-        public delegate bool TeleportDelegate(uint aetheryteId, byte subAetheryteId);
-        public delegate void EnqueuePropertyShortcutDelegate(PropertyType propertyType, HouseEnterMode? houseEnterMode);
-        public delegate void MoveToWorkshopDelegate();
+        public delegate bool Teleport(uint aetheryteId, byte subAetheryteId);
+        public delegate void EnqueuePropertyShortcut(PropertyType propertyType, HouseEnterMode? houseEnterMode);
+        public delegate void MoveToWorkshop();
+        public delegate void TPAndChangeWorld(string world, bool isDcTransfer, string secondaryTeleport, bool noSecondaryTeleport, WorldChangeAetheryte? worldChangeGateway, bool? doNotifyAfterTravel, bool? returnToGatewayAfterTravel);
     }
 
     [EzIPC("Teleport")]
-    public TeleportDelegate Teleport { get; private set; }
+    public Teleport Teleport { get; private set; }
 
     [EzIPC("TeleportToHome")]
     public Func<bool> TeleportToHome { get; private set; }
@@ -56,7 +57,7 @@ public sealed class LifestreamIPC : ProviderBase
     /// type(home=1, fc=2, apartment=3), mode(enter house=2)
     /// </summary>
     [EzIPC("EnqueuePropertyShortcut")]
-    public EnqueuePropertyShortcutDelegate EnqueuePropertyShortcut { get; private set; }
+    public EnqueuePropertyShortcut EnqueuePropertyShortcut { get; private set; }
 
     [EzIPC("GetCurrentPlotInfo")]
     public Func<(int Kind, int Ward, int Plot)?> GetCurrentPlotInfo { get; private set; }
@@ -93,8 +94,9 @@ public sealed class LifestreamIPC : ProviderBase
     /// </summary>
     [EzIPC("TPAndChangeWorld")]
     public Action<string, bool, string, bool, WorldChangeAetheryte?, bool?, bool?> TPAndChangeWorld { get; private set; }
+    
 
-    [EzIPC("EnqueueLocalInnShortcut")]
+[EzIPC("EnqueueLocalInnShortcut")]
     public Action<int?> EnqueueLocalInnShortcut { get; private set; }
 
     [EzIPC("GetHousePathData")]
@@ -110,7 +112,7 @@ public sealed class LifestreamIPC : ProviderBase
     public Func<bool> CanMoveToWorkshop { get; private set; }
 
     [EzIPC("MoveToWorkshop")]
-    public MoveToWorkshopDelegate MoveToWorkshop { get; private set; }
+    public MoveToWorkshop MoveToWorkshop { get; private set; }
 
     [EzIPC("ExecuteCommand")]
     public Action<string> ExecuteCommand { get; private set; }
