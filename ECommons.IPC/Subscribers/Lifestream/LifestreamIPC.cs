@@ -26,6 +26,19 @@ public sealed class LifestreamIPC : IPCBase
         public delegate void TPAndChangeWorld(string world, bool isDcTransfer, string secondaryTeleport, bool noSecondaryTeleport, WorldChangeAetheryte? worldChangeGateway, bool? doNotifyAfterTravel, bool? returnToGatewayAfterTravel);
     }
 
+
+    [EzIPC] 
+    public Func<bool> CanChangeInstance{ get; private set; }
+
+    [EzIPC] 
+    public Func<int> GetNumberOfInstances{ get; private set; }
+
+    [EzIPC] 
+    public Action<int> ChangeInstance{ get; private set; }
+
+    [EzIPC] 
+    public Func<int> GetCurrentInstance{ get; private set; }
+
     [EzIPC("Teleport")]
     public Teleport Teleport { get; private set; }
 
@@ -116,4 +129,20 @@ public sealed class LifestreamIPC : IPCBase
 
     [EzIPC("ExecuteCommand")]
     public Action<string> ExecuteCommand { get; private set; }
+
+    public bool ChangeWorld(string world, WorldChangeAetheryte? gateway = WorldChangeAetheryte.Uldah)
+    {
+        if(IsBusy()) return false;
+        if(CanVisitCrossDC(world))
+        {
+            TPAndChangeWorld(world, true, null, true, gateway, false, false);
+            return true;
+        }
+        else if(CanVisitSameDC(world))
+        {
+            TPAndChangeWorld(world, false, null, true, gateway, false, false);
+            return true;
+        }
+        return false;
+    }
 }

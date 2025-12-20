@@ -1,6 +1,7 @@
 ﻿using ECommons.EzIpcManager;
 using ECommons.IPC.Subscribers.Artisan;
 using ECommons.IPC.Subscribers.AutoRetainer;
+using ECommons.IPC.Subscribers.BossMod;
 using ECommons.IPC.Subscribers.Dropbox;
 using ECommons.IPC.Subscribers.LifestreamIPC;
 using ECommons.IPC.Subscribers.Questionable;
@@ -26,5 +27,6 @@ public static class ECommonsIPC
     public static QuestionableIPC Questionable { get { field ??= new(); return field; } }
     public static TextAdvanceIPC TextAdvance { get { field ??= new(); return field; } }
     public static VnavmeshIPC Vnavmesh { get { field ??= new(); return field; } }
-    public static WrathComboIPC WrathComboIPC { get { field ??= new(); return field; } }
+    public static WrathComboIPC WrathCombo { get { field ??= new(); return field; } }
+    public static BossModIPC BossMod { get { field ??= new(); return field; } }
 }

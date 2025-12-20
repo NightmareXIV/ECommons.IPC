@@ -24,6 +24,7 @@ public sealed class VnavmeshIPC : IPCBase
     public static class Delegates
     {
         public delegate Task<List<Vector3>> Pathfind(Vector3 from, Vector3 to, bool isFlying);
+        public delegate bool PathfindAndMoveTo(Vector3 position, bool canFly);
     }
 
     [EzIPC("Nav.IsReady")] public Func<bool> IsReady{get; private set;}
@@ -35,7 +36,7 @@ public sealed class VnavmeshIPC : IPCBase
     /// </summary>
     [EzIPC("Nav.Pathfind")] public Pathfind Pathfind{get; private set;}
 
-    [EzIPC("SimpleMove.PathfindAndMoveTo")] public Func<Vector3, bool, bool> PathfindAndMoveTo{get; private set;}
+    [EzIPC("SimpleMove.PathfindAndMoveTo")] public PathfindAndMoveTo PathfindAndMoveTo {get; private set;}
     [EzIPC("SimpleMove.PathfindInProgress")] public Func<bool> PathfindInProgress{get; private set;}
 
     [EzIPC("Path.Stop")] public Action Stop{get; private set;}
@@ -49,4 +50,5 @@ public sealed class VnavmeshIPC : IPCBase
     /// Vector3 p, bool allowUnlandable, float halfExtentXZ
     /// </summary>
     [EzIPC("Query.Mesh.PointOnFloor")] public Func<Vector3, bool, float, Vector3?> PointOnFloor{get; private set;}
+    [EzIPC("Path.MoveTo")] public Action<List<Vector3>, bool> MoveTo{get; private set;}
 }
