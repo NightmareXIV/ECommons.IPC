@@ -30,5 +30,5 @@ Note: ECommons.IPC does not attempts to preemptively gather all and any plugins 
 
 ## Additional notes
 1. **Custom delegates vs `Action`/`Func`**. Custom delegates are not mandatory, but can be great help if it's not clear what is expected as arguments. Define custom delegates in a nested static class named `Delegates`. If function is self-explanatory or doesn't even accepts any arguments, feel free to just use `Action`/`Func`.
-2. **Helper methods.** Feel free to bring them whenever they make sense, just don't overdo it.
+2. **Helper methods.** Feel free to bring them whenever they make sense, just don't overdo it. If you prefer, you can keep delegates private and provide public methods that call delegates instead. 
 3. **Events.** For now I decided not to handle events as they are rarely used by plugins at all and additional overhead they provide. However, it can be reconsidered if needed. 
