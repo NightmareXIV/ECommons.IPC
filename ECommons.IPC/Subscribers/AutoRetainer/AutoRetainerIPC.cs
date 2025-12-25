@@ -24,4 +24,6 @@ public sealed class AutoRetainerIPC : IPCBase
     [EzIPC("PluginState.EnqueueHET")] public Action<bool, bool> EnqueueHET { get; private set; }
     [EzIPC("PluginState.IsItemProtected")] public Func<uint, bool> IsItemProtected { get; private set; }
     [EzIPC("PluginState.GetMultiModeStatus")] public Func<bool> GetMultiModeStatus { get; private set; }
+    [EzIPC("PluginState.GetClosestRetainerVentureSecondsRemaining")] public Func<ulong, long?> GetClosestRetainerVentureSecondsRemaining { get; private set; }
+    [EzIPC("PluginState.AreAnyRetainersAvailableForCurrentChara")] public Func<bool> AreAnyRetainersAvailableForCurrentChara { get; private set; }
 }
