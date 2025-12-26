@@ -15,6 +15,7 @@ namespace ECommons.IPC;
 using Subscribers.AutoDuty;
 using Subscribers.Gearsetter;
 using Subscribers.PandorasBox;
+using Subscribers.RotationSolverReborn;
 using Subscribers.Stylist;
 using Subscribers.YesAlready;
 
@@ -36,4 +37,5 @@ public static class ECommonsIPC
     public static StylistIPC Stylist { get { field ??= new(); return field; } }
     public static PandorasBoxIPC PandorasBox { get { field ??= new(); return field; } }
     public static GearsetterIPC Gearsetter { get { field ??= new(); return field; } }
+    public static RotationSolverRebornIPC RotationSolverReborn { get { field ??= new(); return field; } }
 }
