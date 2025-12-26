@@ -16,7 +16,9 @@ public sealed class RotationSolverRebornIPC : IPCBase
 
 	public override string InternalName { get; } = "RotationSolver";
 
-	/// <summary>
+    public override string IPCPrefix { get; } = "RotationSolverReborn";
+
+    /// <summary>
 	/// The type of targeting.
 	/// </summary>
 	public enum TargetingType
@@ -311,79 +313,79 @@ public sealed class RotationSolverRebornIPC : IPCBase
 	/// <remarks>
 	/// Delegate signature: <see cref="RotationSolverRebornIPC.Delegates.TestDelegate"/> (string <c>param</c>).
 	/// </remarks>
-	public TestDelegate? Test { get; private set; }
+	[EzIPC] public TestDelegate Test { get; private set; }
 
-	/// <summary>
-	/// Adds a target <c>NameID</c> to RotationSolver's priority list.
-	/// </summary>
-	/// <remarks>
-	/// Delegate signature: <see cref="RotationSolverRebornIPC.Delegates.NameIdDelegate"/> (uint <c>nameId</c>).
-	/// </remarks>
-	public NameIdDelegate? AddPriorityNameID { get; private set; }
+    /// <summary>
+    /// Adds a target <c>NameID</c> to RotationSolver's priority list.
+    /// </summary>
+    /// <remarks>
+    /// Delegate signature: <see cref="RotationSolverRebornIPC.Delegates.NameIdDelegate"/> (uint <c>nameId</c>).
+    /// </remarks>
+    [EzIPC] public NameIdDelegate AddPriorityNameID { get; private set; }
 
-	/// <summary>
-	/// Removes a target <c>NameID</c> from RotationSolver's priority list.
-	/// </summary>
-	/// <remarks>
-	/// Delegate signature: <see cref="RotationSolverRebornIPC.Delegates.NameIdDelegate"/> (uint <c>nameId</c>).
-	/// </remarks>
-	public NameIdDelegate? RemovePriorityNameID { get; private set; }
+    /// <summary>
+    /// Removes a target <c>NameID</c> from RotationSolver's priority list.
+    /// </summary>
+    /// <remarks>
+    /// Delegate signature: <see cref="RotationSolverRebornIPC.Delegates.NameIdDelegate"/> (uint <c>nameId</c>).
+    /// </remarks>
+    [EzIPC] public NameIdDelegate RemovePriorityNameID { get; private set; }
 
-	/// <summary>
-	/// Adds a target <c>NameID</c> to RotationSolver's blacklist.
-	/// </summary>
-	/// <remarks>
-	/// Delegate signature: <see cref="RotationSolverRebornIPC.Delegates.NameIdDelegate"/> (uint <c>nameId</c>).
-	/// </remarks>
-	public NameIdDelegate? AddBlacklistNameID { get; private set; }
+    /// <summary>
+    /// Adds a target <c>NameID</c> to RotationSolver's blacklist.
+    /// </summary>
+    /// <remarks>
+    /// Delegate signature: <see cref="RotationSolverRebornIPC.Delegates.NameIdDelegate"/> (uint <c>nameId</c>).
+    /// </remarks>
+    [EzIPC] public NameIdDelegate AddBlacklistNameID { get; private set; }
 
-	/// <summary>
-	/// Removes a target <c>NameID</c> from RotationSolver's blacklist.
-	/// </summary>
-	/// <remarks>
-	/// Delegate signature: <see cref="RotationSolverRebornIPC.Delegates.NameIdDelegate"/> (uint <c>nameId</c>).
-	/// </remarks>
-	public NameIdDelegate? RemoveBlacklistNameID { get; private set; }
+    /// <summary>
+    /// Removes a target <c>NameID</c> from RotationSolver's blacklist.
+    /// </summary>
+    /// <remarks>
+    /// Delegate signature: <see cref="RotationSolverRebornIPC.Delegates.NameIdDelegate"/> (uint <c>nameId</c>).
+    /// </remarks>
+    [EzIPC] public NameIdDelegate RemoveBlacklistNameID { get; private set; }
 
-	/// <summary>
-	/// Changes RotationSolver's operating state.
-	/// </summary>
-	/// <remarks>
-	/// Delegate signature: <see cref="RotationSolverRebornIPC.Delegates.ChangeOperatingModeDelegate"/> (<see cref="RotationSolverRebornIPC.StateCommandType"/> <c>stateCommand</c>).
-	/// </remarks>
-	public ChangeOperatingModeDelegate? ChangeOperatingMode { get; private set; }
+    /// <summary>
+    /// Changes RotationSolver's operating state.
+    /// </summary>
+    /// <remarks>
+    /// Delegate signature: <see cref="RotationSolverRebornIPC.Delegates.ChangeOperatingModeDelegate"/> (<see cref="RotationSolverRebornIPC.StateCommandType"/> <c>stateCommand</c>).
+    /// </remarks>
+    [EzIPC] public ChangeOperatingModeDelegate ChangeOperatingMode { get; private set; }
 
-	/// <summary>
-	/// Changes operating state and targeting rule, typically used by Autoduty integrations.
-	/// </summary>
-	/// <remarks>
-	/// Delegate signature: <see cref="RotationSolverRebornIPC.Delegates.AutodutyChangeOperatingModeDelegate"/> (<see cref="RotationSolverRebornIPC.StateCommandType"/> <c>stateCommand</c>, <see cref="RotationSolverRebornIPC.TargetingType"/> <c>targetingType</c>).
-	/// </remarks>
-	public AutodutyChangeOperatingModeDelegate? AutodutyChangeOperatingMode { get; private set; }
+    /// <summary>
+    /// Changes operating state and targeting rule, typically used by Autoduty integrations.
+    /// </summary>
+    /// <remarks>
+    /// Delegate signature: <see cref="RotationSolverRebornIPC.Delegates.AutodutyChangeOperatingModeDelegate"/> (<see cref="RotationSolverRebornIPC.StateCommandType"/> <c>stateCommand</c>, <see cref="RotationSolverRebornIPC.TargetingType"/> <c>targetingType</c>).
+    /// </remarks>
+    [EzIPC] public AutodutyChangeOperatingModeDelegate AutodutyChangeOperatingMode { get; private set; }
 
-	/// <summary>
-	/// Triggers a special state window (e.g., healing, movement, burst).
-	/// </summary>
-	/// <remarks>
-	/// Delegate signature: <see cref="RotationSolverRebornIPC.Delegates.TriggerSpecialStateDelegate"/> (<see cref="RotationSolverRebornIPC.SpecialCommandType"/> <c>specialCommand</c>).
-	/// </remarks>
-	public TriggerSpecialStateDelegate? TriggerSpecialState { get; private set; }
+    /// <summary>
+    /// Triggers a special state window (e.g., healing, movement, burst).
+    /// </summary>
+    /// <remarks>
+    /// Delegate signature: <see cref="RotationSolverRebornIPC.Delegates.TriggerSpecialStateDelegate"/> (<see cref="RotationSolverRebornIPC.SpecialCommandType"/> <c>specialCommand</c>).
+    /// </remarks>
+    [EzIPC] public TriggerSpecialStateDelegate TriggerSpecialState { get; private set; }
 
-	/// <summary>
-	/// Executes an auxiliary command or opens a RotationSolver UI panel.
-	/// </summary>
-	/// <remarks>
-	/// Delegate signature: <see cref="RotationSolverRebornIPC.Delegates.OtherCommandDelegate"/> (<see cref="RotationSolverRebornIPC.OtherCommandType"/> <c>otherType</c>, string <c>str</c>).
-	/// </remarks>
-	public OtherCommandDelegate? OtherCommand { get; private set; }
+    /// <summary>
+    /// Executes an auxiliary command or opens a RotationSolver UI panel.
+    /// </summary>
+    /// <remarks>
+    /// Delegate signature: <see cref="RotationSolverRebornIPC.Delegates.OtherCommandDelegate"/> (<see cref="RotationSolverRebornIPC.OtherCommandType"/> <c>otherType</c>, string <c>str</c>).
+    /// </remarks>
+    [EzIPC] public OtherCommandDelegate OtherCommand { get; private set; }
 
-	/// <summary>
-	/// Requests execution of a specific action for a time window.
-	/// </summary>
-	/// <remarks>
-	/// Delegate signature: <see cref="RotationSolverRebornIPC.Delegates.ActionCommandDelegate"/> (string <c>action</c>, float <c>time</c> in seconds).
-	/// </remarks>
-	public ActionCommandDelegate? ActionCommand { get; private set; }
+    /// <summary>
+    /// Requests execution of a specific action for a time window.
+    /// </summary>
+    /// <remarks>
+    /// Delegate signature: <see cref="RotationSolverRebornIPC.Delegates.ActionCommandDelegate"/> (string <c>action</c>, float <c>time</c> in seconds).
+    /// </remarks>
+    [EzIPC] public ActionCommandDelegate ActionCommand { get; private set; }
 
 	public static class Delegates
 	{

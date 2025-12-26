@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace ECommons.IPC.Subscribers.Vnavmesh;
 
+using static VnavmeshIPC.Delegates;
+
 public sealed class VnavmeshIPC : IPCBase
 {
     public VnavmeshIPC()
@@ -22,7 +24,7 @@ public sealed class VnavmeshIPC : IPCBase
     {
         public delegate Task<List<Vector3>> Pathfind(Vector3 from, Vector3 to, bool isFlying);
         public delegate bool PathfindAndMoveTo(Vector3 position, bool canFly);
-        public delegate bool PathMoveTo(List<Vector3> waypoints, bool fly);
+        public delegate void PathMoveTo(List<Vector3> waypoints, bool fly);
     }
 
     [EzIPC("Nav.IsReady")] public Func<bool> IsReady { get; private set; }
@@ -32,9 +34,9 @@ public sealed class VnavmeshIPC : IPCBase
     /// <summary>
     /// Vector3 from, Vector3 to, bool fly
     /// </summary>
-    [EzIPC("Nav.Pathfind")] public Delegates.Pathfind Pathfind { get; private set; }
+    [EzIPC("Nav.Pathfind")] public Pathfind Pathfind { get; private set; }
 
-    [EzIPC("SimpleMove.PathfindAndMoveTo")] public Delegates.PathfindAndMoveTo PathfindAndMoveTo { get; private set; }
+    [EzIPC("SimpleMove.PathfindAndMoveTo")] public PathfindAndMoveTo PathfindAndMoveTo { get; private set; }
     [EzIPC("SimpleMove.PathfindInProgress")] public Func<bool> PathfindInProgress { get; private set; }
 
     [EzIPC("Path.Stop")] public Action Stop { get; private set; }
@@ -48,7 +50,7 @@ public sealed class VnavmeshIPC : IPCBase
     /// Vector3 p, bool allowUnlandable, float halfExtentXZ
     /// </summary>
     [EzIPC("Query.Mesh.PointOnFloor")] public Func<Vector3, bool, float, Vector3?> PointOnFloor { get; private set; }
-    [EzIPC("Path.MoveTo")] public Delegates.PathMoveTo MoveTo { get; private set; }
+    [EzIPC("Path.MoveTo")] public PathMoveTo MoveTo { get; private set; }
 
     [EzIPC("Path.NumWaypoints")] public Func<int> NumWaypoints { get; private set; }
     [EzIPC("Path.GetMovementAllowed")] public Func<bool> GetMovementAllowed { get; private set; }
