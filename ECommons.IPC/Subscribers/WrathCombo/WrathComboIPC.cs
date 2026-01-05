@@ -5,6 +5,7 @@ using static ECommons.IPC.Subscribers.WrathCombo.WrathComboIPC.Delegates;
 
 namespace ECommons.IPC.Subscribers.WrathCombo;
 
+[Obsolete("All WrathCombo's IPC functions are available via WrathCombo.IPC library now. Install from https://github.com/PunishXIV/WrathCombo.API")]
 public sealed class WrathComboIPC : IPCBase
 {
     public WrathComboIPC()
