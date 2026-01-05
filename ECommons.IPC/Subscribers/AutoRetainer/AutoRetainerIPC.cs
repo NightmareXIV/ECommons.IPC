@@ -1,5 +1,6 @@
 ﻿using ECommons.EzIpcManager;
 using System;
+using static ECommons.IPC.Subscribers.AutoRetainer.AutoRetainerIPC.Delegates;
 
 namespace ECommons.IPC.Subscribers.AutoRetainer;
 
@@ -11,6 +12,12 @@ public sealed class AutoRetainerIPC : IPCBase
 
     public AutoRetainerIPC(SafeWrapper wrapper) : base(wrapper)
     {
+    }
+
+    public static class Delegates
+    {
+        public delegate bool? AreAnyEnabledVesselsNotDeployed(ulong contentId);
+        public delegate bool? AreAnyEnabledVesselsReady(ulong contentId);
     }
 
     public override string InternalName { get; } = "AutoRetainer";
@@ -26,4 +33,6 @@ public sealed class AutoRetainerIPC : IPCBase
     [EzIPC("PluginState.GetMultiModeStatus")] public Func<bool> GetMultiModeStatus { get; private set; }
     [EzIPC("PluginState.GetClosestRetainerVentureSecondsRemaining")] public Func<ulong, long?> GetClosestRetainerVentureSecondsRemaining { get; private set; }
     [EzIPC("PluginState.AreAnyRetainersAvailableForCurrentChara")] public Func<bool> AreAnyRetainersAvailableForCurrentChara { get; private set; }
+    [EzIPC("PluginState.AreAnyEnabledVesselsNotDeployed")] public AreAnyEnabledVesselsNotDeployed AreAnyEnabledVesselsNotDeployed { get; private set; }
+    [EzIPC("PluginState.AreAnyEnabledVesselsReady")] public AreAnyEnabledVesselsReady AreAnyEnabledVesselsReady { get; private set; }
 }
