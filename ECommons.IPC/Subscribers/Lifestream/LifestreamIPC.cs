@@ -24,6 +24,7 @@ public sealed class LifestreamIPC : IPCBase
         public delegate void EnqueuePropertyShortcut(PropertyType propertyType, HouseEnterMode? houseEnterMode);
         public delegate void MoveToWorkshop();
         public delegate void TPAndChangeWorld(string world, bool isDcTransfer, string secondaryTeleport, bool noSecondaryTeleport, WorldChangeAetheryte? worldChangeGateway, bool? doNotifyAfterTravel, bool? returnToGatewayAfterTravel);
+        public delegate void MoveEx(List<Vector3> path, bool? ignoreDeltaY, float? destTolerance, float? tolerance);
     }
 
 
@@ -95,6 +96,9 @@ public sealed class LifestreamIPC : IPCBase
 
     [EzIPC("Move")]
     public Action<List<Vector3>> Move { get; private set; }
+
+    [EzIPC("MoveEx")]
+    public MoveEx MoveEx { get; private set; }
 
     [EzIPC("CanVisitSameDC")]
     public Func<string, bool> CanVisitSameDC { get; private set; }
