@@ -12,6 +12,7 @@ using ECommons.IPC.Subscribers.WrathCombo;
 
 namespace ECommons.IPC;
 
+using ECommons.IPC.Subscribers.AllaganTools;
 using ECommons.IPC.Subscribers.CashFlow;
 using Subscribers.AutoDuty;
 using Subscribers.Gearsetter;
@@ -22,22 +23,23 @@ using Subscribers.YesAlready;
 
 public static class ECommonsIPC
 {
-    public static LifestreamIPC Lifestream { get { field ??= new(); return field; } }
-    public static TeleporterIPC Teleporter { get { field ??= new(); return field; } }
-    public static ArtisanIPC Artisan { get { field ??= new(); return field; } }
-    public static AutoRetainerIPC AutoRetainer { get { field ??= new(); return field; } }
-    public static DropboxIPC Dropbox { get { field ??= new(); return field; } }
-    public static QuestionableIPC Questionable { get { field ??= new(); return field; } }
-    public static TextAdvanceIPC TextAdvance { get { field ??= new(); return field; } }
-    public static VnavmeshIPC Vnavmesh { get { field ??= new(); return field; } }
-    public static WrathComboIPC WrathCombo { get { field ??= new(); return field; } }
-    public static WeathermanIPC Weatherman { get { field ??= new(); return field; } }
-    public static BossModIPC BossMod { get { field ??= new(); return field; } }
-    public static AutoDutyIPC AutoDuty { get { field ??= new(); return field; } }
-    public static YesAlreadyIPC YesAlready { get { field ??= new(); return field; } }
-    public static StylistIPC Stylist { get { field ??= new(); return field; } }
-    public static PandorasBoxIPC PandorasBox { get { field ??= new(); return field; } }
-    public static GearsetterIPC Gearsetter { get { field ??= new(); return field; } }
-    public static RotationSolverRebornIPC RotationSolverReborn { get { field ??= new(); return field; } }
-    public static CashFlowIPC CashFlow { get { field ??= new(); return field; } }
+    public static LifestreamIPC Lifestream => field ??= new();
+    public static TeleporterIPC Teleporter => field ??= new();
+    public static ArtisanIPC Artisan => field ??= new();
+    public static AutoRetainerIPC AutoRetainer => field ??= new();
+    public static DropboxIPC Dropbox => field ??= new();
+    public static QuestionableIPC Questionable => field ??= new();
+    public static TextAdvanceIPC TextAdvance => field ??= new();
+    public static VnavmeshIPC Vnavmesh => field ??= new();
+    public static WrathComboIPC WrathCombo => field ??= new();
+    public static WeathermanIPC Weatherman => field ??= new();
+    public static BossModIPC BossMod => field ??= new();
+    public static AutoDutyIPC AutoDuty => field ??= new();
+    public static YesAlreadyIPC YesAlready => field ??= new();
+    public static StylistIPC Stylist => field ??= new();
+    public static PandorasBoxIPC PandorasBox => field ??= new();
+    public static GearsetterIPC Gearsetter => field ??= new();
+    public static RotationSolverRebornIPC RotationSolverReborn => field ??= new();
+    public static CashFlowIPC CashFlow => field ??= new();
+    public static AllaganToolsIPC AllaganTools => field ??= new();
 }
