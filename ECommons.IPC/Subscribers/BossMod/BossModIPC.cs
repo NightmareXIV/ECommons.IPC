@@ -24,6 +24,9 @@ public sealed class BossModIPC : IPCBase
         public delegate bool AddTransientStrategyDelegate(string presetName, string moduleTypeName, string trackName, string value);
     }
 
+    [EzIPC] public Func<IReadOnlyList<string>, bool, List<string>> Configuration { get; private set; }
+    [EzIPC("Configuration.LastModified")] public Func<DateTime> Configuration_LastModified { get; private set; }
+    [EzIPC("Configuration.DisableModule")] public Func<string, bool, bool> DisableModule { get; private set; }
     [EzIPC] public Func<uint, bool> HasModuleByDataId { get; private set; }
     [EzIPC("Presets.Get")] public Func<string, string?> Presets_Get { get; private set; }
     [EzIPC("Presets.Create")] public Func<string, bool, bool> Presets_Create { get; private set; }
