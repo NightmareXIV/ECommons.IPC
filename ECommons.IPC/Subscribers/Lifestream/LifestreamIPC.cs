@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Numerics;
 using static ECommons.IPC.Subscribers.LifestreamIPC.LifestreamIPC.Delegates;
+using AddressBookEntryTuple = (string Name, int World, int City, int Ward, int PropertyType, int Plot, int Apartment, bool ApartmentSubdivision, bool AliasEnabled, string Alias);
 
 namespace ECommons.IPC.Subscribers.LifestreamIPC;
 
@@ -27,18 +28,17 @@ public sealed class LifestreamIPC : IPCBase
         public delegate void MoveEx(List<Vector3> path, bool? ignoreDeltaY, float? destTolerance, float? tolerance);
     }
 
+    [EzIPC]
+    public Func<bool> CanChangeInstance { get; private set; }
 
-    [EzIPC] 
-    public Func<bool> CanChangeInstance{ get; private set; }
+    [EzIPC]
+    public Func<int> GetNumberOfInstances { get; private set; }
 
-    [EzIPC] 
-    public Func<int> GetNumberOfInstances{ get; private set; }
+    [EzIPC]
+    public Action<int> ChangeInstance { get; private set; }
 
-    [EzIPC] 
-    public Action<int> ChangeInstance{ get; private set; }
-
-    [EzIPC] 
-    public Func<int> GetCurrentInstance{ get; private set; }
+    [EzIPC]
+    public Func<int> GetCurrentInstance { get; private set; }
 
     [EzIPC("Teleport")]
     public Teleport Teleport { get; private set; }
@@ -111,9 +111,9 @@ public sealed class LifestreamIPC : IPCBase
     /// </summary>
     [EzIPC("TPAndChangeWorld")]
     public Action<string, bool, string, bool, WorldChangeAetheryte?, bool?, bool?> TPAndChangeWorld { get; private set; }
-    
 
-[EzIPC("EnqueueLocalInnShortcut")]
+
+    [EzIPC("EnqueueLocalInnShortcut")]
     public Action<int?> EnqueueLocalInnShortcut { get; private set; }
 
     [EzIPC("GetHousePathData")]
@@ -133,6 +133,12 @@ public sealed class LifestreamIPC : IPCBase
 
     [EzIPC("ExecuteCommand")]
     public Action<string> ExecuteCommand { get; private set; }
+
+    [EzIPC("GetAddressBookEntries")]
+    public Func<List<AddressBookEntryTuple>> GetAddressBookEntries { get; private set; }
+
+    [EzIPC("GetAddressBookEntriesWithFolders")]
+    public Func<Dictionary<string, List<AddressBookEntryTuple>>> GetAddressBookEntriesWithFolders { get; private set; }
 
     public bool ChangeWorld(string world, WorldChangeAetheryte? gateway = WorldChangeAetheryte.Uldah)
     {
