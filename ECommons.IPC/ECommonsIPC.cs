@@ -12,12 +12,13 @@ using ECommons.IPC.Subscribers.WrathCombo;
 
 namespace ECommons.IPC;
 
-using ECommons.IPC.Subscribers.AllaganTools;
-using ECommons.IPC.Subscribers.CashFlow;
+using Subscribers.AllaganTools;
+using Subscribers.CashFlow;
 using Subscribers.AutoDuty;
 using Subscribers.Gearsetter;
 using Subscribers.PandorasBox;
 using Subscribers.RotationSolverReborn;
+using Subscribers.Skippy;
 using Subscribers.Stylist;
 using Subscribers.YesAlready;
 
@@ -42,4 +43,5 @@ public static class ECommonsIPC
     public static RotationSolverRebornIPC RotationSolverReborn => field ??= new();
     public static CashFlowIPC CashFlow => field ??= new();
     public static AllaganToolsIPC AllaganTools => field ??= new();
+    public static SkippyIPC Skippy => field ??= new();
 }
