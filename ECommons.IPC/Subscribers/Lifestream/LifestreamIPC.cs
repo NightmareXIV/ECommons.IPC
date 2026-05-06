@@ -29,6 +29,9 @@ public sealed class LifestreamIPC : IPCBase
     }
 
     [EzIPC]
+    public Action<AddressBookEntryTuple> GoToHousingAddress { get; private set; }
+
+    [EzIPC]
     public Func<bool> CanChangeInstance { get; private set; }
 
     [EzIPC]
