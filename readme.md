@@ -2,6 +2,8 @@
 This library aims to collect IPC of various plugins to avoid/minimize amount of copypasting between plugins and for easier overall maintenance.
 
 # How to use?
+### 0. Setup
+Follow the setup instructions in [the parent repository](https://github.com/NightmareXIV/ECommons)'s README.
 ### 1. Lazy initialization.
 Just access static `ECommonsIPC` class and pick your plugin. For example: `ECommonsIPC.Teleporter.Teleport(9, 0);`
 ### 2. Create your own instance.
