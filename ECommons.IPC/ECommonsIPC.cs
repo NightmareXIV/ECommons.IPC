@@ -9,18 +9,18 @@ using ECommons.IPC.Subscribers.TextAdvance;
 using ECommons.IPC.Subscribers.Vnavmesh;
 using ECommons.IPC.Subscribers.Weatherman;
 using ECommons.IPC.Subscribers.WrathCombo;
+using ECommons.IPC.Subscribers.AllaganTools;
+using ECommons.IPC.Subscribers.AutoDuty;
+using ECommons.IPC.Subscribers.CashFlow;
+using ECommons.IPC.Subscribers.Gearsetter;
+using ECommons.IPC.Subscribers.PandorasBox;
+using ECommons.IPC.Subscribers.RotationSolverReborn;
+using ECommons.IPC.Subscribers.Skippy;
+using ECommons.IPC.Subscribers.Stylist;
+using ECommons.IPC.Subscribers.YesAlready;
+using ECommons.IPC.Subscribers.AetherBags;
 
 namespace ECommons.IPC;
-
-using Subscribers.AllaganTools;
-using Subscribers.CashFlow;
-using Subscribers.AutoDuty;
-using Subscribers.Gearsetter;
-using Subscribers.PandorasBox;
-using Subscribers.RotationSolverReborn;
-using Subscribers.Skippy;
-using Subscribers.Stylist;
-using Subscribers.YesAlready;
 
 public static class ECommonsIPC
 {
@@ -44,4 +44,5 @@ public static class ECommonsIPC
     public static CashFlowIPC CashFlow => field ??= new();
     public static AllaganToolsIPC AllaganTools => field ??= new();
     public static SkippyIPC Skippy => field ??= new();
+    public static AetherBagsIPC AetherBags => field ??= new();
 }
