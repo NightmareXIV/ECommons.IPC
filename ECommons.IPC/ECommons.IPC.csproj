@@ -24,6 +24,7 @@
         <IsTrimmable>false</IsTrimmable>
         <Nullable>enable</Nullable>
         <WarningsAsErrors>RS0030</WarningsAsErrors>
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     </PropertyGroup>
 
     <PropertyGroup Label="Documentation">
