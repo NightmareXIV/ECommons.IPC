@@ -22,6 +22,8 @@ using ECommons.IPC.Subscribers.AetherBags;
 
 namespace ECommons.IPC;
 
+using Subscribers.GlamourLog;
+
 public static class ECommonsIPC
 {
     public static LifestreamIPC Lifestream => field ??= new();
@@ -37,7 +39,7 @@ public static class ECommonsIPC
     public static BossModIPC BossMod => field ??= new();
     public static AutoDutyIPC AutoDuty => field ??= new();
     public static YesAlreadyIPC YesAlready => field ??= new();
-    public static StylistIPC Stylist => field ??= new();
+    public static StylistIPC Stylist => field ??= new(); 
     public static PandorasBoxIPC PandorasBox => field ??= new();
     public static GearsetterIPC Gearsetter => field ??= new();
     public static RotationSolverRebornIPC RotationSolverReborn => field ??= new();
@@ -45,4 +47,5 @@ public static class ECommonsIPC
     public static AllaganToolsIPC AllaganTools => field ??= new();
     public static SkippyIPC Skippy => field ??= new();
     public static AetherBagsIPC AetherBags => field ??= new();
+    public static GlamourLogIPC GlamourLog => field ??= new();
 }
