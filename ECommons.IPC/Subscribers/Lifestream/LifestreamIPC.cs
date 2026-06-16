@@ -159,9 +159,12 @@ public sealed class LifestreamIPC : IPCBase
         return false;
     }
 
-    [EzIPC] 
+    [EzIPC("ChangeCharacter")]
     public Func<string, string, ErrorCode> ChangeCharacter { get; private set; }
 
-    [EzIPC] 
+    [EzIPC("ChangeCharacterAndTravel")]
+    public Func<string, string, string, ErrorCode> ChangeCharacterAndTravel { get; private set; }
+
+    [EzIPC("Logout")] 
     public Func<ErrorCode> Logout { get; private set; }
 }
