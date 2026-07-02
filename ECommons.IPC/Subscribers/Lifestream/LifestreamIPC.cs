@@ -26,6 +26,14 @@ public sealed class LifestreamIPC : IPCBase
         public delegate void MoveToWorkshop();
         public delegate void TPAndChangeWorld(string world, bool isDcTransfer, string secondaryTeleport, bool noSecondaryTeleport, WorldChangeAetheryte? worldChangeGateway, bool? doNotifyAfterTravel, bool? returnToGatewayAfterTravel);
         public delegate void MoveEx(List<Vector3> path, bool? ignoreDeltaY, float? destTolerance, float? tolerance);
+        public delegate void EnqueueCustomAliasFromString(string aliasString, bool force, int? inclusiveStart, int? inclusiveEnd);
+    }
+
+    [EzIPC("EnqueueCustomAliasFromString")]
+    private EnqueueCustomAliasFromString EnqueueCustomAliasFromStringInternal { get; set; }
+    public void EnqueueCustomAliasFromString(string aliasString, bool force = false, int? inclusiveStart = null, int? inclusiveEnd = null)
+    {
+        EnqueueCustomAliasFromStringInternal(aliasString, force, inclusiveStart, inclusiveEnd);
     }
 
     [EzIPC]
