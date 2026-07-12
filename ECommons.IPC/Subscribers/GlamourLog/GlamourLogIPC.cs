@@ -26,5 +26,8 @@ namespace ECommons.IPC.Subscribers.GlamourLog
         [EzIPC] public Func<uint, bool>       IsItemInDresser     { get; private set; }
         [EzIPC] public Func<uint, bool>       IsItemOwned         { get; private set; }
         [EzIPC] public Func<uint, bool>       IsSetComplete       { get; private set; }
+        [EzIPC] public Func<uint, bool>       IsContentComplete   { get; private set; }
+        [EzIPC] public Func<bool>             EntrustAll          { get; private set; }
+        [EzIPC] public Func<bool>             IsBusy              { get; private set; }
     }
 }
