@@ -175,4 +175,7 @@ public sealed class LifestreamIPC : IPCBase
 
     [EzIPC("Logout")] 
     public Func<ErrorCode> Logout { get; private set; }
+
+    [EzIPC("Abort")]
+    public Action Abort { get; private set; }
 }
