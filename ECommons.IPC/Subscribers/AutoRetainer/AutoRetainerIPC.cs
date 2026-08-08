@@ -35,4 +35,5 @@ public sealed class AutoRetainerIPC : IPCBase
     [EzIPC("PluginState.AreAnyRetainersAvailableForCurrentChara")] public Func<bool> AreAnyRetainersAvailableForCurrentChara { get; private set; }
     [EzIPC("PluginState.AreAnyEnabledVesselsNotDeployed")] public AreAnyEnabledVesselsNotDeployed AreAnyEnabledVesselsNotDeployed { get; private set; }
     [EzIPC("PluginState.AreAnyEnabledVesselsReady")] public AreAnyEnabledVesselsReady AreAnyEnabledVesselsReady { get; private set; }
+    [EzIPC("PluginState.EnableSingleMultiMode")] public Action EnableSingleMultiMode { get; private set; }
 }

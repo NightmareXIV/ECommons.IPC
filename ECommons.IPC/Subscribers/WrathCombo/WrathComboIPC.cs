@@ -65,4 +65,5 @@ public sealed class WrathComboIPC : IPCBase
     [EzIPC("CanWeave")] public CanWeave CanWeave { get; private set; }
     [EzIPC("CanDelayedWeave")] public CanDelayedWeave CanDelayedWeave { get; private set; }
     [EzIPC("ActionReady")] public ActionReady ActionReady { get; private set; }
+    [EzIPC("GetAutoRotationState")] public Func<bool> GetAutoRotationState { get; private set;  }
 }
