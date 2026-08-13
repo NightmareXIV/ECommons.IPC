@@ -31,4 +31,5 @@ public sealed class QuestionableIPC : IPCBase
     [EzIPC("AddQuestPriority")] public Func<bool> AddQuestPriority{get; private set;}
     [EzIPC("InsertQuestPriority")] public Func<int, string, bool> InsertQuestPriority{get; private set;}
     [EzIPC("ExportQuestPriority")] public Func<string> ExportQuestPriority{get; private set;}
+    [EzIPC("Stop")] public Func<string, bool> Stop { get; private set; }
 }
