@@ -19,12 +19,12 @@ using ECommons.IPC.Subscribers.Skippy;
 using ECommons.IPC.Subscribers.Stylist;
 using ECommons.IPC.Subscribers.YesAlready;
 using ECommons.IPC.Subscribers.AetherBags;
-
-namespace ECommons.IPC;
-
+using ECommons.IPC.Subscribers.GlamourLog;
 using ECommons.IPC.Subscribers.Battlevest;
 using ECommons.IPC.Subscribers.Splatoon;
-using Subscribers.GlamourLog;
+using ECommons.IPC.Subscribers.SomethingNeedDoing;
+
+namespace ECommons.IPC;
 
 public static class ECommonsIPC
 {
@@ -52,4 +52,5 @@ public static class ECommonsIPC
     public static GlamourLogIPC GlamourLog => field ??= new();
     public static BattlevestIPC Battlevest => field ??= new();
     public static SplatoonIPC Splatoon => field ??= new();
+    public static SomethingNeedDoingIPC SomethingNeedDoing => field ??= new();
 }
