@@ -1,6 +1,7 @@
 ﻿using ECommons.IPC.Subscribers.Artisan;
 using ECommons.IPC.Subscribers.AutoRetainer;
 using ECommons.IPC.Subscribers.BossMod;
+using ECommons.IPC.Subscribers.BossModReborn;
 using ECommons.IPC.Subscribers.Dropbox;
 using ECommons.IPC.Subscribers.Questionable;
 using ECommons.IPC.Subscribers.Teleporter;
@@ -39,6 +40,7 @@ public static class ECommonsIPC
     public static WrathComboIPC WrathCombo => field ??= new();
     public static WeathermanIPC Weatherman => field ??= new();
     public static BossModIPC BossMod => field ??= new();
+    public static BossModRebornIPC BossModReborn => field ??= new();
     public static AutoDutyIPC AutoDuty => field ??= new();
     public static YesAlreadyIPC YesAlready => field ??= new();
     public static StylistIPC Stylist => field ??= new(); 
