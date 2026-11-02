@@ -20,6 +20,7 @@ public sealed class AutoDutyIPC : IPCBase
     public static class Delegates
     {
         public delegate void RunDelegate(uint territoryType, int loops = 0, bool bareMode = false);
+        public delegate void RunForPluginDelegate(string pluginName, uint territoryType, int loops = 0, bool bareMode = false);
     }
 
     /**
@@ -53,4 +54,20 @@ public sealed class AutoDutyIPC : IPCBase
      * @param territoryType The territory type ID to check.
      */
     [EzIPC("ContentHasPath")] public Func<uint, bool> ContentHasPath { get; private set; }
+
+    /**
+     * None = 0,
+     * Support = 1,
+     * Trust_Group = 2,
+     * Trust_Solo = 3
+     */
+    [EzIPC] public Action<int> SetLevelingMode { get;     private set; }
+
+    /**
+     * @param string plugin identifier
+     * @param bool enable or disable the plugin config. On false, returns to default
+     */
+    [EzIPC] public Action<string, bool> PluginConfig { get; private set; }
+
+    [EzIPC] public RunForPluginDelegate RunForPlugin { get; private set; }
 }
