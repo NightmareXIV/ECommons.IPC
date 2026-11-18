@@ -28,4 +28,7 @@ public sealed class GlamourLogIPC : IPCBase
     [EzIPC] public Func<uint, bool> IsContentComplete { get; private set; }
     [EzIPC] public Func<bool> EntrustAll { get; private set; }
     [EzIPC] public Func<bool> IsBusy { get; private set; }
+    [EzIPC] public Func<bool> ReadyToStore { get; private set; }
+    [EzIPC] public Func<uint, bool> IsItemStorable { get; private set; }
+    [EzIPC] public Func<StoreTargets> HasAnythingToStore { get; private set; }
 }
