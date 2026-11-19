@@ -1,5 +1,6 @@
 ﻿using ECommons.EzIpcManager;
 using System;
+using System.Collections.Generic;
 using static ECommons.IPC.Subscribers.AutoRetainer.AutoRetainerIPC.Delegates;
 
 namespace ECommons.IPC.Subscribers.AutoRetainer;
