@@ -1,9 +1,6 @@
 ﻿using ECommons.EzIpcManager;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ECommons.IPC.Subscribers.Questionable;
 
@@ -25,10 +22,16 @@ public sealed class QuestionableIPC : IPCBase
     [EzIPC("GetCurrentlyActiveEventQuests")] public Func<List<string>> GetCurrentlyActiveEventQuests{get; private set;}
     [EzIPC("StartQuest")] public Func<string, bool> StartQuest{get; private set;}
     [EzIPC("StartSingleQuest")] public Func<string, bool> StartSingleQuest{get; private set;}
+    [EzIPC("StartEventQuests")] public Func<bool> StartEventQuests{get; private set;}
+    [EzIPC("GetStopReason")] public Func<string> GetStopReason{get; private set;}
     [EzIPC("IsQuestLocked")] public Func<string, bool> IsQuestLocked{get; private set;}
+    [EzIPC("IsQuestComplete")] public Func<string, bool> IsQuestComplete{get; private set;}
+    [EzIPC("IsReadyToAcceptQuest")] public Func<string, bool> IsReadyToAcceptQuest{get; private set;}
+    [EzIPC("IsQuestAccepted")] public Func<string, bool> IsQuestAccepted{get; private set;}
+    [EzIPC("IsQuestUnobtainable")] public Func<string, bool> IsQuestUnobtainable{get; private set;}
     [EzIPC("ImportQuestPriority")] public Func<string, bool> ImportQuestPriority{get; private set;}
-    [EzIPC("ClearQuestPriority")] public Func<string, bool> ClearQuestPriority{get; private set;}
-    [EzIPC("AddQuestPriority")] public Func<bool> AddQuestPriority{get; private set;}
+    [EzIPC("ClearQuestPriority")] public Func<bool> ClearQuestPriority{get; private set;}
+    [EzIPC("AddQuestPriority")] public Func<string, bool> AddQuestPriority{get; private set;}
     [EzIPC("InsertQuestPriority")] public Func<int, string, bool> InsertQuestPriority{get; private set;}
     [EzIPC("ExportQuestPriority")] public Func<string> ExportQuestPriority{get; private set;}
     [EzIPC("Stop")] public Func<string, bool> Stop { get; private set; }
