@@ -24,6 +24,14 @@ public sealed class QuestionableIPC : IPCBase
     [EzIPC("StartSingleQuest")] public Func<string, bool> StartSingleQuest{get; private set;}
     [EzIPC("StartEventQuests")] public Func<bool> StartEventQuests{get; private set;}
     [EzIPC("GetStopReason")] public Func<string> GetStopReason{get; private set;}
+    [EzIPC("GetStopKind")] public Func<string> GetStopKind{get; private set;}
+    [EzIPC("IsWaitingOnPlayer")] public Func<bool> IsWaitingOnPlayer{get; private set;}
+    [EzIPC("GetCurrentTask")] public Func<string> GetCurrentTask{get; private set;}
+    [EzIPC("GetRemainingTasks")] public Func<List<string>> GetRemainingTasks{get; private set;}
+    [EzIPC("SkipStep")] public Func<bool> SkipStep{get; private set;}
+    [EzIPC("SetStopAfterCurrentQuest")] public Func<bool, bool> SetStopAfterCurrentQuest{get; private set;}
+    [EzIPC("StartDailies")] public Func<List<string>, bool> StartDailies{get; private set;}
+    [EzIPC("HasQuestPath")] public Func<string, bool> HasQuestPath{get; private set;}
     [EzIPC("IsQuestLocked")] public Func<string, bool> IsQuestLocked{get; private set;}
     [EzIPC("IsQuestComplete")] public Func<string, bool> IsQuestComplete{get; private set;}
     [EzIPC("IsReadyToAcceptQuest")] public Func<string, bool> IsReadyToAcceptQuest{get; private set;}
