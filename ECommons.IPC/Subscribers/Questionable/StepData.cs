@@ -15,5 +15,9 @@ public sealed class StepData
     [Obfuscation] public int Step;
     [Obfuscation] public string InteractionType;
     [Obfuscation] public Vector3? Position;
-    [Obfuscation] public ushort TerritoryId;
+    [Obfuscation] public uint TerritoryId;
+    [Obfuscation] public string? Comment;
+    [Obfuscation] public uint? ItemId;
+    [Obfuscation] public int? ItemCount;
+    [Obfuscation] public string ItemQuality;
 }
