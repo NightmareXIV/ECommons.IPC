@@ -31,6 +31,8 @@ public sealed class QuestionableIPC : IPCBase
     [EzIPC("SkipStep")] public Func<bool> SkipStep{get; private set;}
     [EzIPC("SetStopAfterCurrentQuest")] public Func<bool, bool> SetStopAfterCurrentQuest{get; private set;}
     [EzIPC("StartDailies")] public Func<List<string>, bool> StartDailies{get; private set;}
+    [EzIPC("PreviewDailies")] public Func<List<string>, string> PreviewDailies{get; private set;}
+    [EzIPC("GetDailiesResult")] public Func<string> GetDailiesResult{get; private set;}
     [EzIPC("HasQuestPath")] public Func<string, bool> HasQuestPath{get; private set;}
     [EzIPC("IsQuestLocked")] public Func<string, bool> IsQuestLocked{get; private set;}
     [EzIPC("IsQuestComplete")] public Func<string, bool> IsQuestComplete{get; private set;}
@@ -42,5 +44,13 @@ public sealed class QuestionableIPC : IPCBase
     [EzIPC("AddQuestPriority")] public Func<string, bool> AddQuestPriority{get; private set;}
     [EzIPC("InsertQuestPriority")] public Func<int, string, bool> InsertQuestPriority{get; private set;}
     [EzIPC("ExportQuestPriority")] public Func<string> ExportQuestPriority{get; private set;}
+    [EzIPC("MarkAcceptOnly")] public Func<string, bool> MarkAcceptOnly{get; private set;}
+    [EzIPC("ClearAcceptOnly")] public Func<string, bool> ClearAcceptOnly{get; private set;}
+    [EzIPC("SetProfile")] public Func<string, string, bool> SetProfile{get; private set;}
+    [EzIPC("RemoveProfile")] public Func<string, bool> RemoveProfile{get; private set;}
+    [EzIPC("GetProfile")] public Func<string, string> GetProfile{get; private set;}
+    [EzIPC("GetActiveProfile")] public Func<string> GetActiveProfile{get; private set;}
+    [EzIPC("SetSessionProfile")] public Func<string, bool> SetSessionProfile{get; private set;}
+    [EzIPC("ClearSessionProfile")] public Func<bool> ClearSessionProfile{get; private set;}
     [EzIPC("Stop")] public Func<string, bool> Stop { get; private set; }
 }
